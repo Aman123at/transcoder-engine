@@ -170,7 +170,7 @@ async function main() {
             `FFmpeg command executed successfully`,
             fileMetaData
           );
-          
+          await mongoService.updateUserVideoCount(user_id)
           await kafkaService.publishLog(`Done`, fileMetaData);
           console.log("FFmpeg command executed successfully");
           process.exit(0);
